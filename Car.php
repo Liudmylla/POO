@@ -1,117 +1,83 @@
 <?php
-class Car 
+require_once 'Vehicle.php';
+
+
+class Car extends Vehicle
+
 {
-/**
- * @var int
- */
-private $nbWheels;
+    const ALLOWED_ENERGIES = [
 
-/**
- * @var int
- */
+        'fuel',
 
-private $currentSpeed;
-/**
- * @var string
- */
+        'electric',
 
-private $color;
-/**
- * @var int
- */
+    ];
+    /**
 
-private $nbSeats;
-/**
- * @var string
- */
+     * @var string
 
-private $energy;
-/**
- * @var int
- */
+     */
 
-private $energylevel;
+    private $energy;
 
-public function __construct(string $color,int $nbSeats,string $energy)
+
+    /**
+
+     * @var int
+
+     */
+
+    private $energyLevel;
+    public function __construct(string $color, int $nbSeats, string $energy)
+
 {
-    $this->color = $color;
-    $this->nbSeats =$nbSeats;
-    $this->energy=$energy;
+
+    parent::__construct($color, $nbSeats);
+
+    $this->energy = $energy;
+
 }
-public function start()
-{
-    $this->currentSpeed =20;
-    return "Go !";
-}
-public function brake(): string
-{
-    $sentence ="";
-    while ($this->currentSpeed>0){
-        $this->currentSpeed--;
-        $sentence .= "Brake !!!";
+
+
+
+    public function getEnergy(): string
+
+    {
+
+        return $this->energy;
+
     }
-    $sentence .= "The car is stopped !";
-    return $sentence;
-}
-public function forward(): string
-{
-    $sentence ="";
-    while ($this->currentSpeed<50){
-        $this->currentSpeed++;
-        $sentence .= "Avance !!!";
+
+
+    public function setEnergy(string $energy): Car
+
+    {
+
+        $this->energy = $energy; if (in_array($energy, self::ALLOWED_ENERGIES)) {
+
+            $this->energy = $energy;
+    
+        }
+    
+        return $this;
     }
-    $sentence .= "The car's vitesse is 50km !";
-    return $sentence;
-}
-/**
- * @return int
- */
-public function getNbWheels(): int
-{
-return $this->nbWheels;
-}
-/**
- * @return int
- */
-public function getCurrentSpeed(): int
-{
-return $this->currentSpeed;
-}
-/**
- * @return string
- */
-public function getColor(): string
-{
-return $this->color;
-}
-/**
- * @return int
- */
-public function getNbSeats(): int
-{
-return $this->nbSeats;
-}
-/** 
-* @return string
-*/
-public function getEnergy(): string
-{
-return $this->energy;
-}
-/**
- * @return int
- */
-public function getEnergyLevel(): int
-{
-return $this->energylevel;
-}
 
 
+    public function getEnergyLevel(): int
+
+    {
+
+        return $this->energyLevel;
+
+    }
+
+
+    public function setEnergyLevel(int $energyLevel): void
+
+    {
+
+        $this->energyLevel = $energyLevel;
+
+    }
 
 }
-
-
-
-
-
-
