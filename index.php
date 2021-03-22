@@ -2,6 +2,9 @@
 require_once 'Car.php';
 require_once 'Bicycle.php';
 require_once 'Truck.php';
+require_once 'HighWay.php';
+require_once 'PedestrianWay.php';
+require_once 'Bike.php';
 
 $bicycle = new Bicycle('blue', 1);
 
@@ -31,3 +34,4 @@ echo "</br>";
 $truck->setLoading(10);
 echo Truck::is_load($truck);
 var_dump($truck);
+
