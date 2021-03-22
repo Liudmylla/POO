@@ -13,7 +13,8 @@ final class MotorWay extends HighWay
      {
          if ($vehicles instanceof Car || $vehicles instanceof Truck || $vehicles instanceof Bus)
          { 
-              array_push($currentVehicles,$vehicles);
-         }
+              array_push($this->currentVehicles,$vehicles);
+              return $this->currentVehicles;
+            }
      }
 }

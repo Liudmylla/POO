@@ -8,14 +8,15 @@ final class PedestrialWay extends HighWay
     {
        parent::__construct($nbLane,$maxSpeed);
     }
-    
-    public function addVehicle($vehicles)
+
+    public function addVehicle(Vehicle $vehicles)
     {
         if ($vehicles instanceof Bike || $vehicles instanceof Skateboard)
          {
-              array_push($currentVehicles,$vehicles);
-         }
-         return $currentVehicles;
+              array_push($this->currentVehicles,$vehicles);
+              return $this->currentVehicles;
+            }
+        
     }
     
 }
